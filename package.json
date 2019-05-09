@@ -2,16 +2,25 @@
   "name": "blockerio",
   "version": "0.1.0",
   "private": true,
+  "main": "public/electron.js",
   "dependencies": {
+    "concurrently": "^4.1.0",
+    "electron": "^5.0.1",
+    "electron-is-dev": "^1.1.0",
+    "node-sass": "^4.12.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1"
+    "react-router-dom": "^5.0.0",
+    "react-scripts": "3.0.1",
+    "wait-on": "^3.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "electron-dev": "concurrently \"npm start\" \"wait-on http://localhost:3000 && electron .\"",
+    "sass": "node-sass -w public/static/sass/scss/main.scss -o public/static/ --recursive"
   },
   "eslintConfig": {
     "extends": "react-app"
